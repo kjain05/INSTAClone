@@ -5,10 +5,7 @@ const mongoose = require('mongoose');
 const { MONGOURI } = require('./keys');
 require('./models/user');
 
-//parse
-app.use(express.json());
-//requiring router file
-app.use(require('./route/authentication'));
+
 
 //connecting to mogoose database
 mongoose.connect(MONGOURI);
@@ -22,8 +19,14 @@ mongoose.connection.on('error', (err) => {
     console.log("sorry,can't connect! ", err);
 });
 
-// KREyYPJr3q!n.YN
-//database user password(username: Suraj) PwgUP0nej6DFMsji
+require('./models/user');
+require('./models/post');
+
+//parse
+app.use(express.json());
+//requiring router file
+app.use(require('./route/authentication'));
+app.use(require('./route/post'));
 
 app.listen(port, () => {
 
