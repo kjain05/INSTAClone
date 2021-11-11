@@ -15,7 +15,7 @@ router.post("/signup", (req, res) => {
 
     //all three fields must be filled
     if (!name || !email || !password) {
-        return res.status(422).json({ error: "Please fill all the fields!" })
+        return res.status(422).json({ error: "Please fill all the fields!" })//basically return is used when we find some code error or a point in program fater which we dont want program to execute any further...
     }
 
     User.findOne({ email: email }).then((savedUser) => {
@@ -33,7 +33,7 @@ router.post("/signup", (req, res) => {
                 //else,create a new "User" using our User schema
                 const user = new User({
                     email: email,
-                    password: password,
+                    password: hashedpassword,
                     name: name
                 })
                 //save the newly created "user" object
@@ -73,7 +73,7 @@ router.post("/signin", (req, res) => {
             bcrypt.compare(password, savedUser.password)
                 .then(doMatch => {
                     if (doMatch) {
-                        return res.json({ message: "successfully signed in" })
+                        res.json({ message: "successfully signed in" })
                     }
                     else {
                         return res.status(422).json({ error: "Invalid Email or Password" })
