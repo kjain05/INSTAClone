@@ -8,7 +8,7 @@ require('./models/user');
 //parse
 app.use(express.json());
 //requiring router file
-app.use(require('./route/app'));
+app.use(require('./route/authentication'));
 
 //connecting to mogoose database
 mongoose.connect(MONGOURI,{
