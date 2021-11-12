@@ -6,7 +6,7 @@ const User = mongoose.model("User");
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const { JWT_SECRET } = require('../keys');
-const requireLogin = require('../middleware/requireLogin');
+
 // router.get("/protected", requireLogin, (req, res) => {
 //     res.send("Hello");
 // });
@@ -26,7 +26,7 @@ router.post("/signup", (req, res) => {
 
         //console.log(savedUser); output: e.g virat
         if (savedUser) {
-            return res.status(422).json({ error: "user already exists with that email" })
+            return res.status(422).json({ error: "user already exists with that email" });
         }
 
         bcrypt.hash(password, 15)
@@ -34,9 +34,9 @@ router.post("/signup", (req, res) => {
 
                 //else,create a new "User" using our User schema
                 const user = new User({
-                    email: email,
+                    email,
                     password: hashedpassword,
-                    name: name
+                    name
                 })
                 //save the newly created "user" object
                 user.save()
@@ -54,9 +54,9 @@ router.post("/signup", (req, res) => {
         //callback to execute when promise is rejected
         .catch(err => {
             console.log(err);
-        })
+        });
 
-})
+});
 
 //for signin page
 router.post("/signin", (req, res) => {
