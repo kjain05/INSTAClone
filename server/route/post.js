@@ -1,9 +1,23 @@
+const { Router } = require('express');
 const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
 const requireLogin = require('../middleware/requireLogin');
+const { route } = require('./authentication');
 const Post = mongoose.model("Post");
 
+
+
+router.get('/allpost', (req, res) => {
+    Post.find()
+        .populate("postedBy", "_id name") //as it was showing only id in postedBy field ..we needed to shows all items corresponding to that id; 
+        .then(posts => {
+            res.json({ posts });
+        })
+        .catch(err => {
+            console.log(err);
+        })
+});
 
 
 
