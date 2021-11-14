@@ -7,9 +7,9 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const { JWT_SECRET } = require('../keys');
 
-// router.get("/protected", requireLogin, (req, res) => {
-//     res.send("Hello");
-// });
+router.get("/protected", requireLogin, (req, res) => {
+    res.send("Hello");
+});
 
 router.post("/signup", (req, res) => {
     //console.log(req.body.name);
@@ -87,7 +87,5 @@ router.post("/signin", (req, res) => {
                 })
         })
 })
-
-
 
 module.exports = router;

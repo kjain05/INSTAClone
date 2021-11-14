@@ -26,7 +26,8 @@ router.post('/createpost', requireLogin, (req, res) => {
     if (!title || !body) {
         return res.status(422).json({ error: "Please add all the necessary field" });
     }
-    req.user.password = undefined //so that its doesnt shwo up the user password along with its posted by details;
+   // console.log(req.user);
+    req.user.password = undefined //so that its doesnt show up the user password along with its posted by details;
     const post = new Post({
         title: title, //if key and value are same they can be wrritten only once
 
