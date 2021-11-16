@@ -11,7 +11,7 @@ const Home = () => {
                     <img src="https://media.istockphoto.com/photos/lake-inzelenci-springsuppercarniolaslovenia-picture-id1094629964" />
                 </div>
                 <div className="card-content">
-                    <i class="material-icons">favorite_border
+                    <i className="material-icons">favorite_border
 
                     </i>
                     <h6>
@@ -30,7 +30,7 @@ const Home = () => {
                     <img src="https://media.istockphoto.com/photos/lake-inzelenci-springsuppercarniolaslovenia-picture-id1094629964" />
                 </div>
                 <div className="card-content">
-                    <i class="material-icons">favorite_border
+                    <i className="material-icons">favorite_border
 
                     </i>
                     <h6>
@@ -49,7 +49,7 @@ const Home = () => {
                     <img src="https://media.istockphoto.com/photos/lake-inzelenci-springsuppercarniolaslovenia-picture-id1094629964" />
                 </div>
                 <div className="card-content">
-                    <i class="material-icons">favorite_border
+                    <i className="material-icons">favorite_border
 
                     </i>
                     <h6>

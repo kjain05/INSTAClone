@@ -6,6 +6,7 @@ import Home from './components/screens/Home'
 import Signup from './components/screens/Signup'
 import Signin from './components/screens/Signin'
 import Profile from './components/screens/Profile'
+import CreatePost from './components/screens/CreatePost'
 function App() {
   return (
     <BrowserRouter>
@@ -16,6 +17,7 @@ function App() {
         <Route path="/Signin" element={<Signin />} />
         <Route path="/Signup" element={<Signup />} />
         <Route path="/Profile" element={<Profile />} />
+        <Route path="/Create" element={<CreatePost />} />
       </Routes>
 
     </BrowserRouter>
